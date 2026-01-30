@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketPlace - Votre marketplace en ligne</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div>📍 Livraison disponible en Côte d'Ivoire</div>
+                <div>🎁 Livraison gratuite à partir de 1000 FCFA prix de Marcio FUCK YOU</div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="index.html" class="logo">CAMPUS MARKET</a>
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Rechercher des produits...">
+                        <button onclick="searchProducts()">🔍</button>
+                    </div>
+                    <div class="nav-actions">
+                        <a href="fournisseur.html" class="nav-btn">Espace Vendeur</a>
+                        <button class="nav-btn cart-btn" onclick="viewCart()">
+                            🛒 Panier
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-list" id="categoryList">
+                <div class="category-item active" onclick="filterByCategory('all')">Tous</div>
+                <div class="category-item" onclick="filterByCategory('Électronique')">📱 Électronique</div>
+                <div class="category-item" onclick="filterByCategory('Mode')">👔 Mode</div>
+                <div class="category-item" onclick="filterByCategory('Maison')">🏠 Maison</div>
+                <div class="category-item" onclick="filterByCategory('Beauté')">💄 Beauté</div>
+                <div class="category-item" onclick="filterByCategory('Sport')">⚽ Sport</div>
+                <div class="category-item" onclick="filterByCategory('Alimentation')">🍎 Alimentation</div>
+                <div class="category-item" onclick="filterByCategory('Livres')">📚 Livres</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Banner -->
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Découvrez des milliers de produits</h1>
+                <p>Les meilleures offres de vendeurs locaux et internationaux</p>
+                <button class="hero-btn" onclick="scrollToProducts()">Commencer mes achats</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section" id="productsSection">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Produits Populaires</h2>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Chargement des produits...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>🛒 Mon Panier</h2>
+                <button class="close-cart" onclick="closeCart()">✕</button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <!-- Cart items will be inserted here -->
+            </div>
+            <div class="cart-footer" id="cartFooter">
+                <!-- Cart total and actions will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-icon">✅</div>
+        <div class="toast-message">
+            <div class="toast-title" id="toastTitle">Produit ajouté</div>
+            <div class="toast-text" id="toastText">Le produit a été ajouté à votre panier</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <ul>
+                        <li><a href="#">Qui sommes-nous</a></li>
+                        <li><a href="#">Carrières</a></li>
+                        <li><a href="#">Presse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Centre d'aide</a></li>
+                        <li><a href="#">Retours</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Vendeurs</h3>
+                    <ul>
+                        <li><a href="fournisseur.html">Devenir vendeur</a></li>
+                        <li><a href="#">Guide du vendeur</a></li>
+                        <li><a href="#">FAQ Vendeurs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Suivez-nous</h3>
+                    <ul>
+                        <li><a href="#">📘 Facebook</a></li>
+                        <li><a href="#">📷 Instagram</a></li>
+                        <li><a href="#">🐦 Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MarketPlace. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase -->
+    <script type="module" src="You.js"></script>
