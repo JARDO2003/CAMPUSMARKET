@@ -28,7 +28,7 @@ const lampContainer = document.getElementById('lampContainer');
                 passwordInput.value = '';
                 
                 setTimeout(() => {
-                    window.location.href = 'fournisseur.html';
+                    window.location.href = 'dashboard.html';
                 }, 800);
             } else {
                 errorMessage.style.display = 'block';
