@@ -8,88 +8,175 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        📞 Commandez par appel au : 25 20 00 61 61
+    </div>
+
     <!-- Header -->
     <header>
-        <div class="header-top">
-            <div class="container">
-                <div>📍 Livraison disponible en Côte d'Ivoire</div>
-                <div>🎁 Livraison gratuite à partir de 1000 FCFA prix de Marcio FUCK YOU</div>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <img src="/icons/icon-192x192.png" alt="CAMPUS MARKET" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.textContent='🛍️ CAMPUS MARKET'">
+                <span class="logo-text">CAMPUS MARKET</span>
+            </a>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Recherche sur Campus Market">
+                <button class="search-btn" onclick="searchProducts()">RECHERCHER</button>
             </div>
-        </div>
-        <div class="header-main">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a href="index.html" class="logo">CAMPUS MARKET</a>
-                    <div class="search-bar">
-                        <input type="text" id="searchInput" placeholder="Rechercher des produits...">
-                        <button onclick="searchProducts()">🔍</button>
-                    </div>
-                    <div class="nav-actions">
-                        <a href="fournisseur.html" class="nav-btn">Espace Vendeur</a>
-                        <button class="nav-btn cart-btn" onclick="viewCart()">
-                            🛒 Panier
-                            <span class="cart-count" id="cartCount">0</span>
-                        </button>
-                    </div>
-                </div>
+
+            <div class="header-actions">
+                <button class="header-btn" onclick="window.location.href='fournisseur.html'">
+                    <span>👤</span>
+                    Espace Vendeur
+                </button>
+                <button class="header-btn cart-btn" onclick="openCart()">
+                    <span>🛒</span>
+                    Panier
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Categories -->
-    <section class="categories">
-        <div class="container">
-            <div class="category-list" id="categoryList">
-                <div class="category-item active" onclick="filterByCategory('all')">Tous</div>
-                <div class="category-item" onclick="filterByCategory('Électronique')">📱 Électronique</div>
-                <div class="category-item" onclick="filterByCategory('Mode')">👔 Mode</div>
-                <div class="category-item" onclick="filterByCategory('Maison')">🏠 Maison</div>
-                <div class="category-item" onclick="filterByCategory('Beauté')">💄 Beauté</div>
-                <div class="category-item" onclick="filterByCategory('Sport')">⚽ Sport</div>
-                <div class="category-item" onclick="filterByCategory('Alimentation')">🍎 Alimentation</div>
-                <div class="category-item" onclick="filterByCategory('Livres')">📚 Livres</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hero Banner -->
-    <div class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Découvrez des milliers de produits</h1>
-                <p>Les meilleures offres de vendeurs locaux et internationaux</p>
-                <button class="hero-btn" onclick="scrollToProducts()">Commencer mes achats</button>
-            </div>
-        </section>
-    </div>
-
-    <!-- Products Section -->
-    <section class="products-section" id="productsSection">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Produits Populaires</h2>
-            </div>
-            <div class="products-grid" id="productsGrid">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Chargement des produits...</p>
+    <!-- Hero Carousel -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1400&h=300&fit=crop" alt="Promotion 1" onclick="scrollToProducts()">
+                        <div class="carousel-content">
+                            <button class="carousel-btn" onclick="scrollToProducts()">DÉCOUVRIR →</button>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&h=300&fit=crop" alt="Promotion 2" onclick="scrollToProducts()">
+                        <div class="carousel-content">
+                            <button class="carousel-btn" onclick="scrollToProducts()">VOIR TOUT →</button>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1400&h=300&fit=crop" alt="Promotion 3" onclick="scrollToProducts()">
+                        <div class="carousel-content">
+                            <button class="carousel-btn" onclick="scrollToProducts()">ACHETER →</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="goToSlide(0)"></span>
+                    <span class="dot" onclick="goToSlide(1)"></span>
+                    <span class="dot" onclick="goToSlide(2)"></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cartModal">
-        <div class="cart-content">
-            <div class="cart-header">
-                <h2>🛒 Mon Panier</h2>
-                <button class="close-cart" onclick="closeCart()">✕</button>
+    <!-- Flash Sales -->
+    <section class="flash-sales">
+        <div class="flash-header">
+            <div class="flash-title">
+                <span class="flash-icon">⚡</span>
+                <span>Ventes Flash | Chaque jour</span>
             </div>
-            <div class="cart-body" id="cartBody">
+            <div class="flash-timer">
+                <span>TEMPS RESTANT:</span>
+                <span class="time-box" id="hours">00h</span>
+                <span>:</span>
+                <span class="time-box" id="minutes">27m</span>
+                <span>:</span>
+                <span class="time-box" id="seconds">58s</span>
+            </div>
+            <button class="flash-see-all" onclick="scrollToProducts()">Voir Tout</button>
+        </div>
+        <div class="products-grid" id="flashProducts">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p style="color: white;">Chargement...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Deals Section -->
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">Les vrais kens du moment</h2>
+            <button class="see-all-btn">Voir Tout →</button>
+        </div>
+        <div class="products-grid" id="dealsProducts">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Chargement...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsored Products -->
+    <section class="sponsored-section">
+        <div class="section-header">
+            <h2 class="section-title">Produits Sponsorisés</h2>
+            <button class="see-all-btn">Voir Tout →</button>
+        </div>
+        <div class="sponsored-grid" id="sponsoredProducts">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Chargement...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Products Section -->
+    <section class="section" id="allProductsSection">
+        <div class="section-header">
+            <h2 class="section-title">Tous les Produits</h2>
+        </div>
+        <div class="products-grid" id="allProducts">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Chargement...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <div class="bottom-nav-grid">
+            <button class="nav-item active">
+                <div class="nav-item-icon">🏠</div>
+                <div class="nav-item-text">Accueil</div>
+            </button>
+            <button class="nav-item">
+                <div class="nav-item-icon">📂</div>
+                <div class="nav-item-text">Catégories</div>
+            </button>
+            <button class="nav-item" onclick="openCart()">
+                <div class="nav-item-icon">🛒</div>
+                <div class="nav-item-text">Panier</div>
+            </button>
+            <button class="nav-item">
+                <div class="nav-item-icon">❤️</div>
+                <div class="nav-item-text">Favoris</div>
+            </button>
+            <button class="nav-item">
+                <div class="nav-item-icon">👤</div>
+                <div class="nav-item-text">Compte</div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">🛒 Mon Panier</h2>
+                <button class="modal-close" onclick="closeCart()">✕</button>
+            </div>
+            <div class="modal-body" id="cartBody">
                 <!-- Cart items will be inserted here -->
             </div>
-            <div class="cart-footer" id="cartFooter">
-                <!-- Cart total and actions will be inserted here -->
+            <div class="modal-footer" id="cartFooter">
+                <!-- Cart footer will be inserted here -->
             </div>
         </div>
     </div>
@@ -97,54 +184,26 @@
     <!-- Toast Notification -->
     <div class="toast" id="toast">
         <div class="toast-icon">✅</div>
-        <div class="toast-message">
-            <div class="toast-title" id="toastTitle">Produit ajouté</div>
-            <div class="toast-text" id="toastText">Le produit a été ajouté à votre panier</div>
+        <div class="toast-text" id="toastText">Produit ajouté au panier</div>
+    </div>
+
+    <!-- PWA Install Prompt -->
+    <div class="pwa-install-prompt" id="pwaPrompt">
+        <div class="pwa-prompt-content">
+            <div class="pwa-prompt-icon">📱</div>
+            <div class="pwa-prompt-text">
+                <div class="pwa-prompt-title">Installer CAMPUS MARKET</div>
+                <div class="pwa-prompt-desc">Accédez rapidement à l'application depuis votre écran d'accueil</div>
+            </div>
+            <div class="pwa-prompt-actions">
+                <button class="pwa-install-btn" id="installBtn">Installer</button>
+                <button class="pwa-dismiss-btn" id="dismissBtn">Plus tard</button>
+            </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>À propos</h3>
-                    <ul>
-                        <li><a href="#">Qui sommes-nous</a></li>
-                        <li><a href="#">Carrières</a></li>
-                        <li><a href="#">Presse</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">Centre d'aide</a></li>
-                        <li><a href="#">Retours</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Vendeurs</h3>
-                    <ul>
-                        <li><a href="fournisseur.html">Devenir vendeur</a></li>
-                        <li><a href="#">Guide du vendeur</a></li>
-                        <li><a href="#">FAQ Vendeurs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Suivez-nous</h3>
-                    <ul>
-                        <li><a href="#">📘 Facebook</a></li>
-                        <li><a href="#">📷 Instagram</a></li>
-                        <li><a href="#">🐦 Twitter</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 MarketPlace. Tous droits réservés.</p>
-            </div>
-        </div>
     </footer>
 
     <!-- Firebase -->
     <script type="module" src="You.js"></script>
+
