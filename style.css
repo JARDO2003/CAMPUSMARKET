@@ -1,4 +1,4 @@
- * {
+   * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -21,6 +21,8 @@
             background: #FFFFFF;
             color: var(--text-dark);
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
 
         /* Top Banner */
@@ -33,6 +35,9 @@
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .top-banner:hover {
@@ -182,18 +187,26 @@
             padding: 0 20px;
         }
 
+        @media (max-width: 768px) {
+            .hero-container {
+                padding: 0 15px;
+            }
+        }
+
         .carousel {
             position: relative;
             border-radius: 12px;
             overflow: hidden;
             height: 300px;
             margin-bottom: 20px;
+            touch-action: pan-y;
         }
 
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease;
             height: 100%;
+            will-change: transform;
         }
 
         .carousel-slide {
@@ -248,6 +261,7 @@
             transform: translateX(-50%);
             display: flex;
             gap: 8px;
+            z-index: 10;
         }
 
         .dot {
@@ -257,6 +271,8 @@
             background: rgba(255,255,255,0.4);
             cursor: pointer;
             transition: all 0.3s;
+            border: none;
+            padding: 0;
         }
 
         .dot.active {
@@ -923,30 +939,191 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .top-banner {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+
             .header-container {
                 flex-wrap: wrap;
+                padding: 10px 15px;
+            }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .logo-text {
+                font-size: 18px;
             }
 
             .search-container {
                 order: 3;
                 max-width: 100%;
                 flex: 1 0 100%;
+                margin-top: 10px;
+            }
+
+            .search-input {
+                padding: 12px 120px 12px 15px;
+                font-size: 14px;
+            }
+
+            .search-btn {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+
+            .header-actions {
+                gap: 8px;
+            }
+
+            .header-btn {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+
+            .header-btn span {
+                display: none;
+            }
+
+            .cart-btn {
+                padding: 8px 15px;
             }
 
             .carousel {
                 height: 200px;
+                margin-bottom: 15px;
+                border-radius: 8px;
             }
 
-            .carousel-content h2 {
-                font-size: 28px;
+            .carousel-content {
+                bottom: 10px;
+                right: 10px;
             }
 
-            .carousel-content p {
-                font-size: 16px;
+            .carousel-btn {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+
+            .carousel-dots {
+                bottom: 10px;
+                gap: 6px;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .dot.active {
+                width: 24px;
+            }
+
+            .flash-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .flash-title {
+                font-size: 18px;
+            }
+
+            .flash-timer {
+                font-size: 12px;
+            }
+
+            .time-box {
+                padding: 6px 10px;
+                min-width: 45px;
+                font-size: 13px;
+            }
+
+            .flash-see-all {
+                padding: 8px 20px;
+                font-size: 13px;
             }
 
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 15px;
+            }
+
+            .product-card {
+                border-radius: 10px;
+            }
+
+            .product-image-container {
+                height: 150px;
+            }
+
+            .discount-badge {
+                top: 6px;
+                left: 6px;
+                padding: 3px 8px;
+                font-size: 11px;
+            }
+
+            .product-info {
+                padding: 10px;
+            }
+
+            .product-name {
+                font-size: 13px;
+                height: 32px;
+                margin-bottom: 6px;
+            }
+
+            .product-price {
+                font-size: 16px;
+            }
+
+            .product-old-price {
+                font-size: 12px;
+            }
+
+            .stock-bar {
+                height: 5px;
+            }
+
+            .stock-text {
+                font-size: 10px;
+            }
+
+            .add-to-cart-btn {
+                padding: 8px;
+                font-size: 12px;
+                margin-top: 8px;
+            }
+
+            .section {
+                padding: 20px 0;
+            }
+
+            .section-header {
+                padding: 0 15px 15px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .section-title {
+                font-size: 20px;
+                padding-left: 12px;
+            }
+
+            .see-all-btn {
+                font-size: 13px;
+            }
+
+            .sponsored-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                padding: 0 15px;
             }
 
             .bottom-nav {
@@ -958,8 +1135,185 @@
             }
 
             .toast {
-                bottom: 80px;
-                left: 20px;
-                right: 20px;
+                bottom: 90px;
+                left: 15px;
+                right: 15px;
+                padding: 12px 15px;
+            }
+
+            .toast-icon {
+                font-size: 24px;
+            }
+
+            .toast-text {
+                font-size: 13px;
+            }
+
+            .pwa-install-prompt {
+                padding: 15px;
+            }
+
+            .pwa-prompt-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 28px;
+            }
+
+            .pwa-prompt-title {
+                font-size: 16px;
+            }
+
+            .pwa-prompt-desc {
+                font-size: 12px;
+            }
+
+            .pwa-install-btn,
+            .pwa-dismiss-btn {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+
+            .modal-content {
+                width: 95%;
+                max-height: 85vh;
+                margin: 10px;
+            }
+
+            .modal-header {
+                padding: 15px 20px;
+            }
+
+            .modal-title {
+                font-size: 18px;
+            }
+
+            .modal-body {
+                padding: 20px 15px;
+            }
+
+            .cart-item {
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .cart-item-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .cart-item-name {
+                font-size: 13px;
+            }
+
+            .cart-item-price {
+                font-size: 15px;
+            }
+
+            .cart-remove {
+                width: 26px;
+                height: 26px;
+                font-size: 13px;
+            }
+
+            .modal-footer {
+                padding: 15px 20px;
+            }
+
+            .cart-total {
+                font-size: 16px;
+            }
+
+            .whatsapp-btn {
+                padding: 14px;
+                font-size: 15px;
+            }
+        }
+
+        /* Tablettes (768px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .header-container {
+                padding: 12px 20px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+
+            .carousel {
+                height: 250px;
+            }
+
+            .sponsored-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Très petits écrans (< 380px) */
+        @media (max-width: 380px) {
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .search-input {
+                padding: 10px 100px 10px 12px;
+                font-size: 13px;
+            }
+
+            .search-btn {
+                padding: 6px 15px;
+                font-size: 12px;
+            }
+
+            .carousel {
+                height: 160px;
+            }
+
+            .flash-title {
+                font-size: 16px;
+            }
+
+            .flash-icon {
+                font-size: 24px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .product-image-container {
+                height: 130px;
+            }
+
+            .product-name {
+                font-size: 12px;
+            }
+
+            .product-price {
+                font-size: 15px;
+            }
+
+            .add-to-cart-btn {
+                font-size: 11px;
+                padding: 7px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .pwa-prompt-content {
+                flex-direction: column;
+            }
+
+            .pwa-prompt-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .pwa-install-btn,
+            .pwa-dismiss-btn {
+                width: 100%;
             }
         }
